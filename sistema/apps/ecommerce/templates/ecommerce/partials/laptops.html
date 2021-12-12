@@ -1,0 +1,55 @@
+{% load static %}
+
+<li class="product product-card">
+
+    <div class="product-outer">
+        <div class="media product-inner">
+
+            <a class="media-left" href="single-product.html" title="{{ product }}">
+                
+                {% if product.image %}
+                <img class="img-responsive media-object wp-post-image" src="{% static 'ecommerce/assets/images/loading.gif' %}" data-echo="{{ product.image.p_medium.url }}" alt="">
+                {% else %}
+                <img class="img-responsive media-object wp-post-image" src="{% static 'ecommerce/assets/images/loading.gif' %}" data-echo="{% static 'ecommerce/assets/images/1.jpg' %}" alt="">
+                {% endif %}
+                    
+
+            </a>
+
+            <div class="media-body">
+                <span class="loop-product-categories">
+                    <a href="product-category.html" rel="tag">{{ product.subcategory.description }}</a>
+                </span>
+
+                <a href="single-product.html">
+                    <h3>{{ product | title }}</h3>
+                </a>
+
+                <div class="price-add-to-cart">
+                    <span class="price">
+                        <span class="electro-price">
+                            <ins><span class="amount"> $3,788.00</span></ins>
+                            <del><span class="amount">$4,780.00</span></del>
+                            <span class="amount"> </span>
+                        </span>
+                    </span>
+
+                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
+                </div><!-- /.price-add-to-cart -->
+
+                <div class="hover-area">
+                    <div class="action-buttons">
+
+                        <a href="#" class="add_to_wishlist">
+                            Wishlist</a>
+
+                        <a href="#" class="add-to-compare-link">Compare</a>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- /.product-inner -->
+    </div><!-- /.product-outer -->
+
+</li><!-- /.products -->
+    

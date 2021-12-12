@@ -1,0 +1,9 @@
+{% block login %}
+
+<form action="." method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Registrarse</button>
+</form>
+
+{% endblock login %}
+    

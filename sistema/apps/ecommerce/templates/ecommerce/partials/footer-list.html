@@ -1,0 +1,37 @@
+{% load static %}
+
+<div class="col-lg-4 col-md-4 col-xs-12">
+    <aside class="widget clearfix">
+        <div class="body">
+            <h4 class="widget-title">{{ name }}</h4>
+            <ul class="product_list_widget">
+                {% for product in products %}
+                
+                {% if forloop.counter < 4 %}
+                    
+                <li>
+                    <a href="single-product.html" title="Tablet Thin EliteBook  Revolve 810 G6">
+                        <img class="wp-post-image" src="{% static 'ecommerce/assets/images/loading.gif' %}" data-echo="{{ product.image.p_mini.url }}" alt="">
+                        <span class="product-title">{{ product | title }}</span>
+                    </a>
+                    
+                    {% if name == 'Onsale Products' %}
+                    <span class="electro-price"><ins><span class="amount">&#36;1,999.00</span></ins> <del><span class="amount">&#36;2,299.00</span></del></span>
+                    {% elif name == 'Top Rated Products' %}
+                    <div class="star-rating" title="Rated 5 out of 5"><span style="width:100%"><strong class="rating">5</strong> out of 5</span></div>		<span class="electro-price"><ins><span class="amount">&#36;1,999.00</span></ins> <del><span class="amount">&#36;2,299.00</span></del></span>
+                    {% else %}
+                    <span class="electro-price"><span class="amount">&#36;1,300.00</span></span>
+
+                    {% endif %}
+                        
+                </li>
+
+                {% endif %}
+                    
+                  
+                {% endfor %}
+
+            </ul>
+        </div>
+    </aside>
+</div>

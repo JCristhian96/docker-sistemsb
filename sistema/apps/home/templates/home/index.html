@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block js_src %}
+    <!-- Page level plugins -->
+    <script src="{% static 'home/vendor/chart.js/Chart.min.js' %}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'home/js/demo/chart-area-demo.js' %}"></script>
+    <script src="{% static 'home/js/demo/chart-pie-demo.js' %}"></script>
+    
+{% endblock js_src %}
+
+    

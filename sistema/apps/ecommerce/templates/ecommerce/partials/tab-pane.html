@@ -1,0 +1,63 @@
+{% load static %}
+{% load thumbnail %}
+{% load product_extras %}
+
+    
+<div class="tab-pane {% if id == 'tab-products-1' %}active{% endif %}" id="{{ id }}" role="tabpanel">
+    <section class="section-products-carousel" >
+        <div class="home-v3-owl-carousel-tabs">
+            <div class="woocommerce columns-4">
+
+
+                <div class="products owl-carousel home-carousel-tabs products-carousel columns-4">
+
+                    {% for product in products %}
+                    <div class="product first">
+                        <div class="product-outer">
+                            <div class="product-inner">
+                                <span class="loop-product-categories"><a href="product-category.html" rel="tag">{{ product.subcategory.description }}</a></span>
+                                <a href="single-product.html">
+                                    <h3>{{ product | title }}</h3>
+                                    <div class="product-thumbnail">
+                                        <img src="{{ product.image.p_medium.url }}" class="img-responsive" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="price-add-to-cart">
+                                    <span class="price">
+                                        <span class="electro-price">
+                                            
+                                            {% if product.reduction != 0 %}
+                                            <ins><span class="amount">{{ product.reduction | price_format}}</span></ins>    
+                                            <del><span class="amount">{{ product.price | price_format}}</span></del>
+                                            {% else %}
+                                            <span class="amount">{{ product.price | price_format}}</span>
+                                            {% endif %}
+                                        </span>
+                                    </span>
+
+                                    {% include "carts/snippets/add.html" %}
+                                    
+                                </div><!-- /.price-add-to-cart -->
+
+                                <div class="hover-area">
+                                    <div class="action-buttons">
+
+                                        <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+
+                                        <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                    </div>
+                                </div>
+                            </div><!-- /.product-inner -->
+                        </div><!-- /.product-outer -->
+                    </div><!-- /.product -->
+                      
+                    {% endfor %}
+
+
+                    
+                </div><!-- /.products -->
+            </div>
+        </div>
+    </section>
+</div><!-- /.tab-pane -->

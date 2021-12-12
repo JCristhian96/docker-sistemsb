@@ -1,0 +1,55 @@
+{% extends 'bases/list-base.html' %}
+
+
+{% block thead %}
+                                        
+  <th scope="col" style="width: 5%;">Nro.</th>
+  <th scope="col" style="width: 35%;">Descripcion</th>
+  <th scope="col" style="width: 15%;">Marca</th>
+  <th scope="col" style="width: 15%;">Categoria</th>
+  <th scope="col" style="width: 10%;">Estado</th>
+  <th scope="col" style="width: 20%;">Acciones</th>
+  
+{% endblock thead %}
+
+{% block tbody %}
+
+  {% for object in object_list %}
+  <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ object.description }}</td>
+      <td>{{ object.mark }}</td>
+      <td>{{ object.category }}</td>
+      <td>
+        {% if object.active %}
+          <i class="fas fa-check-square"></i>
+        {% else %}
+          <i class="fas fa-ban"></i>
+        {% endif %}
+      </td>
+      <td>
+        <a href="{% url 'products:product-update' object.slug %}" type="button" class="btn btn-warning btn-xs btn-flat"
+          data-toggle="tooltip" title="Editar">
+            <i class="fas fa-edit"></i>
+        </a>
+        
+        {% if object.active %}  
+
+        <a href="{% url 'products:store-active' 'product' object.slug %}" type="button" class="btn btn-danger btn-xs btn-flat"
+          data-toggle="tooltip" title="Inactivar">
+          <i class="fas fa-thumbs-down"></i>
+        </a>
+        
+        {% else %}
+        <a href="{% url 'products:store-active' 'product' object.slug %}" type="button" class="btn btn-success btn-xs btn-flat"
+          data-toggle="tooltip" title="Activar">
+          <i class="fas fa-thumbs-up"></i>
+        </a>
+
+        {% endif %}
+          
+      </td>
+  </tr>
+  {% endfor %}
+    
+{% endblock tbody %}

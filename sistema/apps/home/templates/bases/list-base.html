@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_src %}
+
+    <link rel="stylesheet" href="{% static 'home/lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'home/lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+    
+{% endblock css_src %}
+
+{% block content %}
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Listado de {{title}}</h1>
+    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">{{title}}</h6>
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Acciones:</div>
+                    <a class="dropdown-item" href="{{add_new_url}}">
+                        <span class="fas fa-plus-circle"></span>
+                        {{add_new}}
+                    </a>
+                    <!-- <div class="dropdown-divider"></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="data" width="100%" cellspacing="0">
+                    <thead>
+                        {% block thead %}
+                          
+                        {% endblock thead %}
+                    </thead>
+                    <tfoot>
+                        {% block tfoot %}
+                          
+                        {% endblock tfoot %}
+                    </tfoot>
+                    <tbody>
+                        
+                        {% block tbody %}
+                            
+                        {% endblock tbody %}
+                            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
+
+    
+{% block js_src %}
+    <!-- Page level plugins -->
+    <script src="{% static 'home/lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'home/lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'home/lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'home/lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+    
+{% endblock js_src %}
+
+
+{% block js %}
+<script type="application/javascript">
+    $(function () {
+        $('#data').DataTable({
+            responsive: true,
+            autoWidth: false,
+            // Menu de cantidad (filtro)
+            // "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            // Orden a presentar
+            // "order": [[ 2, 'asc' ], [ 0, 'asc' ]]
+        });
+        $('div.dataTables_filter input').focus(); 
+    });
+</script>
+    
+{% endblock js %}
+    
+    

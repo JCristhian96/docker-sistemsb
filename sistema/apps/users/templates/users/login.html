@@ -1,0 +1,14 @@
+{% block login %}
+    <h2>Ingrese credenciales</h2>
+
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+        <button type="submit">Login</button>
+    </form>
+  
+{% endblock login %}
+    
+
+    

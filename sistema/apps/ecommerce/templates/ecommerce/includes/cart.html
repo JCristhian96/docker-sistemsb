@@ -1,0 +1,48 @@
+{% load static %}
+{% load product_extras %}
+
+
+<ul class="navbar-mini-cart navbar-nav animate-dropdown nav pull-right flip">
+    <li class="nav-item dropdown">
+        <a href="cart.html" class="nav-link" data-toggle="dropdown">
+            <i class="ec ec-shopping-bag"></i>
+            <span class="cart-items-count count">{{ cart.products.count }}</span>
+            <span class="cart-items-total-price total-price"><span class="amount">{{ cart.subtotal | price_format }}</span></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-mini-cart">
+            <li>
+                <div class="widget_shopping_cart_content">
+                    
+                    {% if cart.products.exists %}
+                        
+                    {% for cp in cart.products_related  %}
+                    {% with product=cp.product %}
+                      
+                    <ul class="cart_list product_list_widget ">
+
+                        <li class="mini_cart_item">
+                            <a title="Remove this item" class="remove" href="#">×</a>
+                            <a href="single-product.html">
+                                <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="{{ product.image.p_mini.url }}" alt="">{{product.description }}&nbsp;
+                            </a>
+
+                            <span class="quantity">{{ cp.quantity }} × <span class="amount">{{ product.price | price_format }}</span></span>
+                        </li>
+                    </ul><!-- end product list -->
+
+                    {% endwith %}
+                    {% endfor %}
+                    
+                    {% endif %}
+
+                    <p class="buttons">
+                        <a class="button wc-forward" href="cart.html">View Cart</a>
+                        <a class="button checkout wc-forward" href="checkout.html">Checkout</a>
+                    </p>
+
+
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

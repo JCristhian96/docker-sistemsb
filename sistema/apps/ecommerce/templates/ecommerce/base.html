@@ -1,0 +1,516 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es-pe" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{title}}Electro | Ecommerce</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/assets/css/bootstrap.min.css' %}" media="all" />
+        <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/assets/css/font-awesome.min.css' %}" media="all" />
+        <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/assets/css/animate.min.css' %}" media="all" />
+        <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/assets/css/font-electro.css' %}" media="all" />
+        <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/assets/css/owl-carousel.css' %}" media="all" />
+        <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/assets/css/style.css' %}" media="all" />
+        <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/assets/css/colors/yellow.css' %}" media="all" />
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic' rel='stylesheet' type='text/css'>
+
+        <!-- SweetAlert2-->
+        <link href="{% static 'home/lib/jquery-confirm/jquery-confirm.min.css' %}" rel="stylesheet">
+
+        <link rel="shortcut icon" href="{% static 'ecommerce/assets/images/fav-icon.png' %}">
+        
+        <!-- Estilo para evitar el error de VSCode -->
+        <style>
+            
+            .bg-image{
+                background-image: url("{% static 'ecommerce/assets/images/home-v3-bg.jpg' %}");
+            }
+        </style>
+    </head>
+
+    <body class="home page-template page-template-template-homepage-v3 full-color-background">
+        <div id="page" class="hfeed site">
+            
+            <!-- NavBar -->
+            {% include "ecommerce/includes/navbar.html" %}
+
+
+            <div id="content" class="site-content" tabindex="-1">
+                <div class="container">
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main">
+                            <!-- Slider -->
+                            {% include 'ecommerce/includes/slider.html' %}
+
+                            <div class="home-v3-features-block animate-in-view fadeIn animated" data-animation="fadeIn">
+                                <div class="features-list columns-5">
+                                    <div class="feature">
+                                        <div class="media">
+                                            <div class="media-left media-middle feature-icon">
+                                                <i class="ec ec-transport"></i>
+                                            </div>
+                                            <div class="media-body media-middle feature-text">
+                                                <strong>Free Delivery</strong> from $50
+                                            </div>
+                                        </div>
+                                    </div><!-- .feature -->
+
+                                    <div class="feature">
+                                        <div class="media">
+                                            <div class="media-left media-middle feature-icon">
+                                                <i class="ec ec-customers"></i>
+                                            </div>
+                                            <div class="media-body media-middle feature-text">
+                                                <strong>99% Positive</strong> Feedbacks
+                                            </div>
+                                        </div>
+                                    </div><!-- .feature -->
+
+                                    <div class="feature">
+                                        <div class="media">
+                                            <div class="media-left media-middle feature-icon">
+                                                <i class="ec ec-returning"></i>
+                                            </div>
+                                            <div class="media-body media-middle feature-text">
+                                                <strong>365 days</strong> for free return
+                                            </div>
+                                        </div>
+                                    </div><!-- .feature -->
+
+                                    <div class="feature">
+                                        <div class="media">
+                                            <div class="media-left media-middle feature-icon">
+                                                <i class="ec ec-payment"></i>
+                                            </div>
+                                            <div class="media-body media-middle feature-text">
+                                                <strong>Payment</strong> Secure System
+                                            </div>
+                                        </div>
+                                    </div><!-- .feature -->
+
+                                    <div class="feature">
+                                        <div class="media">
+                                            <div class="media-left media-middle feature-icon">
+                                                <i class="ec ec-tag"></i>
+                                            </div>
+                                            <div class="media-body media-middle feature-text">
+                                                <strong>Only Best</strong> Brands
+                                            </div>
+                                        </div>
+                                    </div><!-- .feature -->
+                                </div><!-- .features-list -->
+                            </div><!-- .home-v3-features-block -->
+                            <div class="home-v3-ads-block animate-in-view fadeIn animated" data-animation=" animated fadeIn">
+                                <div class="ads-block row">
+                                    <div class="ad col-xs-12 col-sm-6">
+                                        <div class="media">
+                                            <div class="media-left media-middle">
+                                                <img data-echo="{% static 'ecommerce/assets/images/banner/cameras.jpg' %}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                            </div>
+                                            <div class="media-body media-middle">
+                                                <div class="ad-text">
+                                                    Catch Hottest <strong>Deals</strong> in Cameras Category
+                                                </div>
+                                                <div class="ad-action">
+                                                    <a href="#">Shop now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.col -->
+
+                                    <div class="ad col-xs-12 col-sm-6">
+                                        <div class="media">
+                                            <div class="media-left media-middle">
+                                                <img data-echo="{% static 'ecommerce/assets/images/banner/DesktopPC.jpg' %}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                            </div>
+                                            <div class="media-body media-middle">
+                                                <div class="ad-text">
+                                                    Tablets, Smartphones <br><strong>and more</strong>
+                                                </div>
+                                                <div class="ad-action">
+                                                    <a href="#"><span class="from"><span class="prefix">From</span><span class="value"><sup>$</sup>749</span><span class="suffix">99</span></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.col -->
+                                </div><!-- /.row -->
+                            </div><!-- /.home-v3-ads-block -->
+                            <section class="products-carousel-tabs animate-in-view fadeIn animated" data-animation="fadeIn">
+                                <h2 class="sr-only">Product Carousel Tabs</h2>
+                                <ul class="nav nav-inline text-xs-left">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#tab-products-1" data-toggle="tab">Featured</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tab-products-2" data-toggle="tab">On Sale</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tab-products-3" data-toggle="tab">Top Rated</a>
+                                    </li>
+                                </ul><!-- /.nav -->
+
+                                <div class="tab-content">
+
+                                    {% include 'ecommerce/partials/tab-pane.html' with id='tab-products-1' products=products_featured %}
+                                    {% include 'ecommerce/partials/tab-pane.html' with id='tab-products-2' products=products_onsale %}
+                                    {% include 'ecommerce/partials/tab-pane.html' with id='tab-products-3' products=products_toprated %}
+                                    <!-- /.tab-pane -->
+
+                                </div><!-- /.tab-content -->
+                            </section><!-- /.products-carousel-tabs -->
+                            <section class="products-carousel-with-image animate-in-view fadeIn animated bg-image" style="background-size: cover; background-position: center center;" data-animation="fadeIn">
+                                <h2 class="sr-only">Products Carousel</h2>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="image-block col-xs-12 col-sm-6">
+                                            <img src="{% static 'ecommerce/assets/images/ad-banner-3.png' %}">
+                                        </div><!-- /.image-block -->
+
+                                        <div class="products-carousel-block col-xs-12 col-sm-6">
+                                            <section class="home-v2-categories-products-carousel section-products-carousel" >
+
+                                                <header>
+                                                    <h2 class="h1">Home Entertainment</h2>
+                                                    <div class="owl-nav">
+                                                        <a href="#products-carousel-prev" data-target="#products-carousel-with-umage" class="slider-prev"><i class="fa fa-angle-left"></i></a>
+                                                        <a href="#products-carousel-next" data-target="#products-carousel-with-umage" class="slider-next"><i class="fa fa-angle-right"></i></a>
+                                                    </div>
+
+                                                </header>
+
+                                                <div id="products-carousel-with-umage">
+                                                    <div class="woocommerce columns-4">
+
+
+                                                        <div class="products owl-carousel home-carousel-tabs products-carousel columns-4">
+
+                                                            {% for product in products %}
+                                                            
+                                                            {% if forloop.counter < 7 %}
+                                                                
+                                                            <div class="product ">
+                                                                <div class="product-outer">
+                                                                    <div class="product-inner">
+                                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">{{ product.subcategory.description }}</a></span>
+                                                                        <a href="single-product.html">
+                                                                            <h3>{{ product | title }}</h3>
+                                                                            <div class="product-thumbnail">
+                                                                                {% if product.image %}
+                                                                                <img data-echo="{{ product.image.p_medium.url }}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                                                {% else %}
+                                                                                <img data-echo="{% static 'ecommerce/assets/images/1.jpg' %}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                                                {% endif %}
+                                                                            </div>
+                                                                        </a>
+
+                                                                        <div class="price-add-to-cart">
+                                                                            <span class="price">
+                                                                                <span class="electro-price">
+                                                                                    <ins><span class="amount"> $1,999.00</span></ins>
+                                                                                    <del><span class="amount">$2,299.00</span></del>
+                                                                                    <span class="amount"> </span>
+                                                                                </span>
+                                                                            </span>
+                                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                                        </div><!-- /.price-add-to-cart -->
+
+                                                                        <div class="hover-area">
+                                                                            <div class="action-buttons">
+
+                                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+
+                                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!-- /.product-inner -->
+                                                                </div><!-- /.product-outer -->
+                                                            </div>
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                            <!-- /.product -->
+                                                        </div><!-- /.products -->
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div><!-- /.iproducts-carousel-block -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.conainer -->
+                            </section><!-- /.products-carousel-with-image-->
+                            <section class="section-product-cards-carousel animate-in-view fadeIn animated" data-animation="fadeIn">
+                                <header>
+                                    <h2 class="h1">Laptops &amp; Computers</h2>
+
+                                    <div class="owl-nav">
+                                        <a href="#products-cards-carousel-prev" data-target="#homev3-products-cards-carousel" class="slider-prev"><i class="fa fa-angle-left"></i></a>
+                                        <a href="#products-cards-carousel-next" data-target="#homev3-products-cards-carousel" class="slider-next"><i class="fa fa-angle-right"></i></a>
+                                    </div>
+                                </header><!-- /header-->
+
+
+                                <div id="homev3-products-cards-carousel">
+                                    <div class="woocommerce home-v3 columns-2 product-cards-carousel owl-carousel">
+
+                                        {% for product in products %}
+                                                                                
+                                        {% if forloop.counter == 1 %}
+                                        <ul class="products columns-2">
+                                        {% endif %}
+                                           
+                                        {% if forloop.counter < 5 %}
+                                        {% include "ecommerce/partials/laptops.html" with product=product %}
+                                        {% endif %}
+
+                                        {% if forloop.counter == 4 %}
+                                        </ul>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 5 %}
+                                        <ul class="products columns-2">
+                                        {% endif %}
+
+                                        {% if forloop.counter > 4 and forloop.counter < 9 %}
+                                        {% include "ecommerce/partials/laptops.html" with product=product %}
+                                        {% endif %}
+
+                                        {% if forloop.counter == 8 %}
+                                        </ul>
+                                        {% endif %}
+
+                                            
+                                        {% endfor %}
+
+
+                                    </div>
+                                </div><!-- /#homev3-products-cards-carousel-->
+
+                            </section><!-- /.section-product-cards-carousel-->
+                            <section class="products-6-1 animate-in-view fadeIn animated" data-animation="fadeIn">
+                                <div class="container">
+                                    <header>
+                                        <h2 class="h1">Bestsellers</h2>
+                                        <ul class="nav nav-inline">
+                                            <li class="nav-item active">
+                                                <span class="nav-link">Top 7</span>
+                                            </li>
+                                            
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="product-category.html">Smart Phones &amp; Tablets</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="product-category.html">Laptops &amp; Computers</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="product-category.html">Video Cameras</a>
+                                            </li>
+                                        </ul>
+                                    </header>
+
+                                    <div class="columns-6-1">
+                                        <ul class="products exclude-auto-height products-6">
+                                            {% for product in products %}
+                                            
+                                            {% if forloop.counter < 7 %}
+                                                
+                                            <li class="product">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">{{ product.subcategory.description }}</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>{{ product | title }}</h3>
+                                                            <div class="product-thumbnail">
+
+                                                                {% if product.image %}
+                                                                <img data-echo="{{ product.image.p_medium.url }}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                                {% else %}
+                                                                <img data-echo="{% static 'ecommerce/assets/images/1.jpg' %}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                                {% endif %}
+
+
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                            <span class="price">
+                                                                <span class="electro-price">
+                                                                    <ins><span class="amount">&#036;1,999.00</span></ins>
+                                                                    <del><span class="amount">&#036;2,299.00</span></del>
+                                                                </span>
+                                                            </span>
+                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </li>
+                                            {% endif %}
+                                              
+                                            {% endfor %}
+                                        </ul>
+
+                                        <ul class="products exclude-auto-height product-main-6-1">
+                                            <li class="first product">
+
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+
+                                                        {% for product in products %}
+                                                            
+                                                        {% if forloop.counter == 1 %}
+                                                        <span class="loop-product-categories">
+                                                            <a href="product-category.html" rel="tag">{{ product.subcategory.description }}</a>
+                                                        </span>
+
+                                                        <a href="single-product.html">
+                                                            <h3>{{ product | title }} <br/>+ USB 3.0 Cable</h3>
+                                                            <div class="product-thumbnail">
+                                                                {% if product.image %}
+                                                                <img data-echo="{{ product.image.p_medium.url }}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                                {% else %}
+                                                                <img data-echo="{% static 'ecommerce/assets/images/1.jpg' %}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                                {% endif %}
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="thumbnails columns-3">
+
+                                                            {% for i in range %}
+
+                                                            <a href="{% static 'images/products/thumb1.jpg' %}" class="zoom first" title="" data-rel="prettyPhoto[product-gallery]">
+                                                                
+                                                                {% if product.image %}
+                                                                <img src="{% static 'ecommerce/assets/images/loading.gif' %}" data-echo="{{ product.image.p_mini.url }}"  alt="">
+                                                                    
+                                                                {% endif %}
+                                                                    
+                                                            </a>
+                                                              
+                                                            {% endfor %}
+                                                              
+                                                            
+                                                        </div>
+
+                                                        <div class="price-add-to-cart">
+                                                            <span class="price">
+                                                                <span class="electro-price"><ins><span class="amount">&#36;79.00</span></ins> <del><span class="amount">&#36;99.00</span></del></span>
+                                                            </span>
+
+                                                            <a rel="nofollow" href="cart.html" class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">Compare</a>
+                                                            </div>
+                                                        </div>
+                                                                
+                                                        {% endif %}
+                                                            
+                                                        {% endfor %}
+
+
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </li><!-- /.product -->
+                                        </ul><!-- /.products-->
+                                    </div><!-- /.columns-6-1 -->
+                                </div><!-- /.container-->
+                            </section><!-- /.products-6-1 -->
+                            <section class="home-list-categories animate-in-view fadeIn animated" data-animation="fadeIn">
+                                <header>
+                                    <h2 class="h1">Top Categories this Month</h2>
+                                </header>
+                                <ul class="categories">
+                                    {% for product in products %}
+                                    {% if forloop.counter < 7 %}
+
+                                    <li class="category">
+                                        <div class="media">
+                                            <a class="media-left" href="product-category.html">
+                                                
+                                                {% if product.image %}
+                                                <img data-echo="{{ product.image.p_medium.url }}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                {% else %}
+                                                <img data-echo="{% static 'ecommerce/assets/images/1.jpg' %}" src="{% static 'ecommerce/assets/images/loading.gif' %}" alt="">
+                                                {% endif %}
+                                                    
+                                                
+                                            </a><!-- /.media-left -->
+
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><a href="product-category.html">Smart Phones & Tablets</a></h4>
+                                                <ul class="sub-categories list-unstyled">
+                                                    <li class="cat-item">
+                                                        <a href="product-category.html" >Accessories</a>
+                                                    </li>
+                                                    <li class="cat-item">
+                                                        <a href="product-category.html" >Chargers</a>
+                                                    </li>
+                                                    <li class="cat-item">
+                                                        <a href="product-category.html" >Powerbanks</a>
+                                                    </li>
+                                                    <li class="cat-item">
+                                                        <a href="product-category.html" >Smartphones</a>
+                                                    </li>
+                                                </ul>
+                                            </div><!-- /.media-body -->
+                                        </div><!-- /.media -->
+                                        <a class="see-all" href="#">See all</a>
+                                    </li>
+
+                                    {% endif %}
+                                    {% endfor %}
+                                    
+                                </ul>
+                            </section>
+                        </main><!-- #main -->
+                    </div><!-- #primary -->
+                </div><!-- .container -->
+            </div><!-- #content -->
+
+            <!-- Carrousel Marks -->
+            {% include "ecommerce/includes/carrousel-marks.html" %}
+
+            <!-- Footer -->
+            {% include "ecommerce/includes/footer.html" %}
+            
+
+        </div><!-- #page -->
+
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/tether.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/bootstrap-hover-dropdown.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/owl.carousel.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/echo.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/wow.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/jquery.easing.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/jquery.waypoints.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ecommerce/assets/js/electro.js' %}"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="{% static 'home/lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+        
+        <!-- Messages -->
+        {% include "includes/messages2.html" %}
+
+    </body>
+</html>

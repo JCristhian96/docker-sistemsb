@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<form method="POST" action="." class="form" enctype="multipart/form-data">{% csrf_token %}
+
+
+    <div class="col-xl-11 col-md-12 mb-12">
+        <div class="card border-left-{% if object %}warning{% else %}success{% endif %} shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters">
+            <div class="col mr-10 sm-12">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                    {{ title }}
+                </div>
+                <div class="dropdown-divider"></div>
+
+                {% include "partials/form-errors.html" %}
+                {% for field in form  %}    
+                    <div class="row mb-2">
+                        <div class="col-12 col-md-6">{{ field.label_tag }}</div>              
+                        <div class="col-12 col-md-6">
+                            {{ field|add_class:'form-control' }}
+                            {% include "partials/field-errors.html" %}
+                        </div>
+                    </div>
+                            
+                {% endfor %}
+
+                <div class="dropdown-divider"></div>       
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <button type="submit" class="btn {% if object %}btn-warning{% else %}btn-success{% endif %}">
+                            <span class="fa fa-save"></span>
+                            {% if object %}Modificar{% else %}Guardar{% endif %}
+                        </button>
+                        <a href="{{ list_url }}" class="btn btn-primary ml-2" name="cancelar" id="cancelar">
+                            <span class="fas fa-undo-alt"></span>
+                            Cancelar
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    
+</form> 
+
+    
+{% endblock content %}
+

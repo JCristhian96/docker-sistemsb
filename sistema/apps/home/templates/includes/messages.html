@@ -1,0 +1,45 @@
+<script>
+
+    function mensaje(msg, tag){
+        vmsg = msg
+        vtag = tag
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom',
+            showConfirmButton: false,
+            background: '#eceef0',
+            
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: this.vtag,
+            title: this.vmsg
+          })
+    }
+
+//    function msg(message){
+//        Swal.fire({
+//            title: 'Mensaje!',
+//            text: message,
+//            heightAuto: false,
+//            height: 250,
+//            icon: 'success'
+//
+//        })
+//    }
+    
+    {% if messages %}
+    {% for message in messages %}
+
+        mensaje("{{message}}", "{{message.tags}}")
+        
+    {% endfor %}
+    {% endif %}          
+
+</script>

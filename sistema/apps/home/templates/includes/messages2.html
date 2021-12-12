@@ -1,0 +1,46 @@
+<script>
+  jQuery(document).ready(function($){
+    function mensaje(msg, color="green"){
+        if (color =="success"){
+          color ="green";
+        }
+        if (color =="error"){
+          color ="red";
+        }
+        if (color =="warning"){
+          color ="orange";
+        }
+
+        $.confirm({
+            icon: 'ec ec-add-to-cart',
+            title: 'Carrito de compras',
+            content: msg,
+            type: color,
+            buttons: {
+                tryAgain: {
+                    text: 'Ver Carrito',
+                    btnClass: 'btn-green',
+                    action: function(){
+                        location.href = "{% url 'ecommerce' %}";
+                    }
+                },
+                cerrar: function () {
+                }
+            }
+        });
+      }
+
+      {% if messages %}
+        {% for message in messages %}
+            //Tags indica el tipo de mensaje a enviar
+            mensaje('{{message}}','{{ message.tags }}');
+            console.log('{{message}}')
+        {% endfor %}
+      {% endif %}
+
+
+    });
+
+    
+
+</script>

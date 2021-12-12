@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+asgiref = "==3.3.4"
+Django = "==3.2.10"
+django-session-security = "==2.6.6"
+django-widget-tweaks = "==1.4.8"
+easy-thumbnails = "==2.7.1"
+Pillow = "==8.2.0"
+python-dotenv = "==0.17.1"
+pytz = "==2021.1"
+six = "==1.16.0"
+sqlparse = "==0.4.1"
+Unipath = "==1.1"
+PyMySQL = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+
+[dev-packages]
+django-querycount = "==0.7.0"
+django-debug-toolbar = "*"
+
+[requires]
+python_version = "3.8"

@@ -1,0 +1,34 @@
+{% load static %}
+{% load thumbnail %}
+
+<section class="brands-carousel">
+    <h2 class="sr-only">Brands Carousel</h2>
+    <div class="container">
+        <div id="owl-brands" class="owl-brands owl-carousel unicase-owl-carousel owl-outer-nav">
+            
+            {% for mark in marks %}
+              
+            <div class="item">
+
+                <a href="#">
+
+                    <figure>
+                        <figcaption class="text-overlay">
+                            <div class="info">
+                                <h4>{{mark}}</h4>
+                            </div><!-- /.info -->
+                        </figcaption>
+
+                         <img src="{{ mark.image.mark.url }}" class="img-responsive" alt="">
+
+                    </figure>
+                </a>
+            </div><!-- /.item -->
+
+            {% endfor %}
+
+
+        </div><!-- /.owl-carousel -->
+
+    </div>
+</section>

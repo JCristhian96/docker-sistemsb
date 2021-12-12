@@ -1,0 +1,31 @@
+# VSCode Settings
+.vscode/
+workspace.code-workspace
+
+# DJango Cache
+*.pyc
+
+# Variables de entorno y entorno virtual
+.venv/
+sistema/.env
+sistema/media/
+sistema/staticfiles/
+sistema/db.sqlite3
+
+# Apps Migrations
+# Products
+sistema/apps/products/migrations/*.py
+!sistema/apps/products/migrations/__init__.py
+
+# Users
+sistema/apps/users/migrations/*.py
+!sistema/apps/users/migrations/__init__.py
+
+# Ecommerce
+sistema/apps/ecommerce/migrations/*.py
+!sistema/apps/ecommerce/migrations/__init__.py
+
+# Carts
+sistema/apps/carts/migrations/*.py
+!sistema/apps/carts/migrations/__init__.py
+

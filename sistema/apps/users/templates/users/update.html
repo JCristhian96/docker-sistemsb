@@ -1,0 +1,11 @@
+{% block login %}
+
+<h3>Nombre de USuario: {{user.username}}</h3>
+<h3>Correo Electronico: {{user.email}}</h3>
+<form action="." method="POST">{% csrf_token %}
+    <!-- <input type="text" name="email" value="{{user.email}}"> -->
+    {{form.as_p}}
+    <button type="submit">Crear</button>
+</form>
+    
+{% endblock login %}

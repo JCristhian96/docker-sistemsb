@@ -1,0 +1,89 @@
+from django.urls import path
+# Views
+from apps.products import views
+
+app_name = "products"
+
+urlpatterns = [
+    path(
+        'categorys/',
+        views.CategoryListView.as_view(),
+        name="categorys"
+    ),
+    path(
+        'category/add/',
+        views.CategoryCreateView.as_view(),
+        name="category-add"
+    ),
+    path(
+        'category/<slug:slug>/',
+        views.CategoryUpdateView.as_view(),
+        name="category-update"
+    ),
+    path(
+        'subcategorys/',
+        views.SubCategoryListView.as_view(),
+        name="subcategorys"
+    ),
+    path(
+        'subcategory/add/',
+        views.SubCategoryCreateView.as_view(),
+        name="subcategory-add"
+    ),
+    path(
+        'subcategory/<slug:slug>/',
+        views.SubCategoryUpdateView.as_view(),
+        name="subcategory-update"
+    ),
+    path(
+        'marks/',
+        views.MarkListView.as_view(),
+        name="marks"
+    ),
+    path(
+        'mark/add/',
+        views.MarkCreateView.as_view(),
+        name="mark-add"
+    ),
+    path(
+        'mark/<slug:slug>/',
+        views.MarkUpdateView.as_view(),
+        name="mark-update"
+    ),
+    path(
+        'umedidas/',
+        views.UMedidaListView.as_view(),
+        name="umedidas"
+    ),
+    path(
+        'umedida/add/',
+        views.UMedidaCreateView.as_view(),
+        name="umedida-add"
+    ),
+    path(
+        'umedida/<slug:slug>/',
+        views.UMedidaUpdateView.as_view(),
+        name="umedida-update"
+    ),
+    path(
+        'products/',
+        views.ProductListView.as_view(),
+        name="products"
+    ),
+    path(
+        'product/add/',
+        views.ProductCreateView.as_view(),
+        name="product-add"
+    ),
+    path(
+        'product/<slug:slug>/',
+        views.ProductUpdateView.as_view(),
+        name="product-update"
+    ),
+    path(
+        'store/<slug:model>/<slug:slug>/active/',
+        views.ActiveView.as_view(),
+        name="store-active"
+    ),
+]
+
