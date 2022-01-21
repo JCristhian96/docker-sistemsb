@@ -7,25 +7,16 @@ workspace.code-workspace
 
 # Variables de entorno y entorno virtual
 .venv/
-sistema/.env
+# sistema/.env
+
+# Media and Static Files
 sistema/media/
 sistema/staticfiles/
-sistema/db.sqlite3
+
+# Database Local
+sistema/config/db.sqlite3
 
 # Apps Migrations
-# Products
-sistema/apps/products/migrations/*.py
-!sistema/apps/products/migrations/__init__.py
-
-# Users
-sistema/apps/users/migrations/*.py
-!sistema/apps/users/migrations/__init__.py
-
-# Ecommerce
-sistema/apps/ecommerce/migrations/*.py
-!sistema/apps/ecommerce/migrations/__init__.py
-
-# Carts
-sistema/apps/carts/migrations/*.py
-!sistema/apps/carts/migrations/__init__.py
+sistema/apps/**/migrations/*.*
+!sistema/apps/**/migrations/__init__.py
 

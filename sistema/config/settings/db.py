@@ -3,7 +3,7 @@ from .base import BASE_DIR, os
 SQLITE3 = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR.child(str(os.getenv('DB_LOCAL')))
+        'NAME': BASE_DIR.child("config", str(os.getenv('DB_LOCAL')))
     }
 }
 
